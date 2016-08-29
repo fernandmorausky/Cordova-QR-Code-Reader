@@ -51,6 +51,10 @@
                     function (result) {
                         if(!result.cancelled)
                         {
+                            alert("Start");
+                            var valuetest = result.text;
+                             alert(valuetest);
+                            
                             if(result.format == "QR_CODE")
                             {
                                 navigator.notification.prompt("Please enter name of data",  function(input){
@@ -67,6 +71,7 @@
                                     alert("Done");
                                 });
                             }
+                            alert("end");
                         }
                     },
                     function (error) {
