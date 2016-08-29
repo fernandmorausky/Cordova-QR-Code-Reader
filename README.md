@@ -1,0 +1,1 @@
+# Cordova-QR-Code-Reader
