@@ -22,6 +22,7 @@
         <script>
             function scan()
             {
+                alert("iniciando");
                 cordova.plugins.barcodeScanner.scan(
                     function (result) {
                         
@@ -34,6 +35,7 @@
                         alert("Scanning failed: " + error);
                     }
                );
+                alert("terminado");
             }
 
           
