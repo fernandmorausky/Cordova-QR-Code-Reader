@@ -16,63 +16,23 @@
             <div data-role="main" class="ui-content">
                 <p>
                     <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
-                    <a target="_blank" href="#display" style="text-decoration: none"><button>Display Scanned Data</button></a>
                 </p>
             </div>
-        </div>
-
-        <div data-role="page" id="display">
-            <div data-role="header">
-                <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
-                <h1>Display</h1>
-            </div>
-
-            <div data-role="main" class="ui-content">
-                <table data-role="table" data-mode="column" id="allTable" class="ui-responsive table-stroke">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        </div> 
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script>
+        var objReceta ;
             function scan()
             {
                 cordova.plugins.barcodeScanner.scan(
                     function (result) {
-                         alert("We got a barcode\n" +
-                                "Result: " + result.text + "\n" +
-                                "Format: " + result.format + "\n" +
-                                "Cancelled: " + result.cancelled);
                         if(!result.cancelled)
                         {
-                            if(result.format == "QR_CODE")
-                            {
-                                navigator.notification.prompt("Please enter name of data",  function(input){
-                                    var name = input.input1;
-                                    var value = result.text;
-
-                                    var data = localStorage.getItem("LocalData");
-                                    console.log(data);
-                                    data = JSON.parse(data);
-                                    data[data.length] = [name, value];
-
-                                    localStorage.setItem("LocalData", JSON.stringify(data));
-
-                                    alert("Done");
-                                });
-                            }
+                            objReceta= JSON.parse(result.text);
                         }
-                        alert("fin");
                     },
                     function (error) {
                         alert("Scanning failed: " + error);
@@ -97,11 +57,7 @@
                 $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
 
             });
-
-            function openURL(url)
-            {
-                window.open(url, '_blank', 'location=yes');
-            }
+ 
 
             //initialize
             if(localStorage.getItem("LocalData") == null)
