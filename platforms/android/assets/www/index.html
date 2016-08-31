@@ -15,27 +15,20 @@
              <li>
                   <h2>HostDoc</h2>
              </li>
+          </ul>
+          <ul>
              <li>
                  <label for="name">Receta:</label>
                  <input type="text"  placeholder="Receta Medica"/>
              </li>
              <li>
-                 <label for="email">Frecuencia:</label>
-                 <input type="email" name="email" placeholder="Frecuencia en horas"/>
-             </li>
-             <!-- <li>
-                 <label for="website">Sitio Web:</label>
-                 <input type="url" name="web" placeholder="http://tutosytips.com" required />
-             </li>
-             <li>
-                 <label for="Mensaje">Mensaje:</label>
-                 <textarea name="Mensaje" cols="40" rows="6" required ></textarea>
-             </li> -->
+                 <label for="frecuencia">Frecuencia:</label>
+                 <input type="frecuencia" name="frecuencia" placeholder="Frecuencia en horas"/>
+             </li> 
                 <button name="BtnComenzar" class="BtnComenzar">Comenzar</button>              
               </li>
               <li>
                 <button name="BtnCancelar" class="BtnCancelar">Desactivar</button>
-
               </li>
           </ul>
       </form>
@@ -62,8 +55,8 @@
                 cordova.plugins.barcodeScanner.scan(
                     function (result) {
                         if(!result.cancelled)
-                        {
-                            objReceta= JSON.parse(result.text);
+                        { 
+                            localStorage.setItem("LocalData", result.text);
                         }
                     },
                     function (error) {
@@ -73,7 +66,7 @@
             }
 
             $(document).on("pagebeforeshow", "#display", function() {
-                $("table#allTable tbody").empty();
+                $("contact_form").empty();
 
                 var data = localStorage.getItem("LocalData");
                 console.log(data);
@@ -84,9 +77,26 @@
                 for(var count = 0; count < data.length; count++)
                 {
                     html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+
+                      <ul>
+                         <li>
+                             <label for="name">Receta:</label>
+                             <input type="text"  placeholder="Receta Medica"/>
+                         </li>
+                         <li>
+                             <label for="frecuencia">Frecuencia:</label>
+                             <input type="frecuencia" name="frecuencia" placeholder="Frecuencia en horas"/>
+                         </li> 
+                            <button name="BtnComenzar" class="BtnComenzar">Comenzar</button>              
+                          </li>
+                          <li>
+                            <button name="BtnCancelar" class="BtnCancelar">Desactivar</button>
+                          </li>
+                      </ul>
                 }
 
-                $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
+                $("contact_form").append(html).closest("contact_form").table("refresh").trigger("create");
 
             });
  
