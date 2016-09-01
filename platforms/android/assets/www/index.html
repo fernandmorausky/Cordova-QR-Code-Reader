@@ -7,7 +7,12 @@
         <title>QRCode Reader APP</title>
         <link rel="stylesheet" type="text/css" href="css\estilo.css">
     </head>
-    <body>
+    <body> 
+            <div data-role="main" class="ui-content">
+                <p>
+                    <a target="_blank" href="javascript:scan();" style="text-decoration: none ,min-height: 10px;"><button>Scan</button></a>
+                </p>
+            </div> 
 
       <form class="contact_form">
       <!--action="#" method="post"--> 
@@ -33,17 +38,7 @@
           </ul>
       </form>
 
-        <div data-role="page" id="home">
-            <div data-role="header">
-                <!--<h1>Home</h1>-->
-            </div>
-
-            <div data-role="main" class="ui-content">
-                <p>
-                    <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
-                </p>
-            </div>
-        </div> 
+        
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
