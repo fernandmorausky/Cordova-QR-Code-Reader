@@ -72,13 +72,13 @@
 
                 for(var count = 0; count < data.length; count++)
                 {
-                html = html +"<ul><li><label for='name'>Receta:" + data[count][1] + "</label><input type='text'  placeholder='medicamento'/> </li>"
-                html = html +"<li><label for='frecuencia'>Frecuencia: " + data[count][2] + "</label>"
-                html = html +"<input type='frecuencia' name='frecuencia' placeholder='Frecuencia en horas'/></li> <button name='BtnComenzar' "
-                html = html +"class='BtnComenzar'>Comenzar</button></li><li><button name='BtnCancelar' class='BtnCancelar'>Desactivar</button></li></ul>"
+                html = html +"<ul><li><label for='name'>Receta:" + data[count][1] + "</label><input type='text'  placeholder='medicamento'/> </li>";
+                html = html +"<li><label for='frecuencia'>Frecuencia: " + data[count][2] + "</label>";
+                html = html +"<input type='frecuencia' name='frecuencia' placeholder='Frecuencia en horas'/></li> <button name='BtnComenzar' ";
+                html = html +"class='BtnComenzar'>Comenzar</button></li><li><button name='BtnCancelar' class='BtnCancelar'>Desactivar</button></li></ul>";
 
                 }
-
+                alert(html);
                 $("contact_form").append(html).closest("contact_form").table("refresh").trigger("create");
 
             });
