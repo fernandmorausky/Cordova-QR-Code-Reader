@@ -53,6 +53,24 @@
                         { 
                             localStorage.setItem("LocalData", result.text);
                             alert(result.text);
+                             $("contact_form").html('');
+
+                            var data = localStorage.getItem("LocalData");
+                            console.log(data);
+                            data = JSON.parse(data);
+
+                            var html = "";
+
+                            for(var count = 0; count < data.length; count++)
+                            {
+                            html = html +"<ul><li><label for='name'>Receta:" + data[count][1] + "</label><input type='text'  placeholder='medicamento'/> </li>";
+                            html = html +"<li><label for='frecuencia'>Frecuencia: " + data[count][2] + "</label>";
+                            html = html +"<input type='frecuencia' name='frecuencia' placeholder='Frecuencia en horas'/></li> <button name='BtnComenzar' ";
+                            html = html +"class='BtnComenzar'>Comenzar</button></li><li><button name='BtnCancelar' class='BtnCancelar'>Desactivar</button></li></ul>";
+
+                            }
+                            alert(html);
+                            $("contact_form").append(html).closest("contact_form").table("refresh").trigger("create");
                         }
                     },
                     function (error) {
