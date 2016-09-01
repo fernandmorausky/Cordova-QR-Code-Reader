@@ -66,37 +66,22 @@
             }
 
             $(document).on("pagebeforeshow", "#display", function() {
-                $("contact_form").empty();
+                // $("contact_form").empty();
 
-                var data = localStorage.getItem("LocalData");
-                console.log(data);
-                data = JSON.parse(data);
+                // var data = localStorage.getItem("LocalData");
+                // console.log(data);
+                // data = JSON.parse(data);
 
-                var html = "";
+                // var html = "";
 
-                for(var count = 0; count < data.length; count++)
-                {
-                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
-                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+                // for(var count = 0; count < data.length; count++)
+                // {
+                //     html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+                //     html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
 
-                      <ul>
-                         <li>
-                             <label for="name">Receta:</label>
-                             <input type="text"  placeholder="Receta Medica"/>
-                         </li>
-                         <li>
-                             <label for="frecuencia">Frecuencia:</label>
-                             <input type="frecuencia" name="frecuencia" placeholder="Frecuencia en horas"/>
-                         </li> 
-                            <button name="BtnComenzar" class="BtnComenzar">Comenzar</button>              
-                          </li>
-                          <li>
-                            <button name="BtnCancelar" class="BtnCancelar">Desactivar</button>
-                          </li>
-                      </ul>
-                }
+                // }
 
-                $("contact_form").append(html).closest("contact_form").table("refresh").trigger("create");
+                // $("contact_form").append(html).closest("contact_form").table("refresh").trigger("create");
 
             });
  
