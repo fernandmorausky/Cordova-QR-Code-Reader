@@ -52,6 +52,7 @@
                         if(!result.cancelled)
                         { 
                             localStorage.setItem("LocalData", result.text);
+                            alert(result.text);
                         }
                     },
                     function (error) {
